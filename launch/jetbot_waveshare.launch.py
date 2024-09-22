@@ -10,10 +10,7 @@ from launch_ros.actions import Node
 
 def generate_launch_description():
     
-    teleop_keyboard = Node(package='jetbot_ros', node_executable='teleop_keyboard',
-                           prefix='lxterminal -e', #'xterm -e'
-                           output='screen',
-                           emulate_tty=True)
+   
     
     motor_controller = Node(package='jetbot_ros', node_executable='motors_waveshare',
                             output='screen', emulate_tty=True)  
@@ -23,7 +20,6 @@ def generate_launch_description():
 
                         
     return LaunchDescription([
-        teleop_keyboard,
         motor_controller,
         rtp_output,
     ])
